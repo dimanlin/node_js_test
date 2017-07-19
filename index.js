@@ -4,13 +4,12 @@
 class Analizer {
   constructor(file_name) {
     this.file_name = file_name
-    this.fileParser(this.showSourceMatrix)
     this.matrix = []
     this.n = 8
     this.m = 8
   }
 
-  fileParser(callback) {
+  parseFile() {
     let lineReader = require('readline').createInterface({
       input: require('fs').createReadStream(this.file_name)
     });
@@ -55,3 +54,4 @@ class Analizer {
 }
 
 const analizer = new Analizer(process.argv[2])
+analizer.parseFile()
